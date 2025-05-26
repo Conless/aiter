@@ -46,7 +46,7 @@ namespace vllm
     {
       const scalar_t x = VLLM_LDG(&input[token_idx * 2 * d + idx]);
       const scalar_t y = VLLM_LDG(&input[token_idx * 2 * d + d + idx]);
-      out[token_idx * d + idx] = ACT_FN(x) * y;
+      out[token_idx * d + idx] = x * ACT_FN(y);
     }
   }
 
